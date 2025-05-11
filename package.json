@@ -1,0 +1,31 @@
+{
+  "name": "awstest",
+  "version": "1.0.0",
+  "description": "AWS Cloud Project",
+  "main": "index.js",
+  "scripts": {
+    "start": "echo \"Define your start script here\"",
+    "dev": "npx http-server frontend/src -p 3001 -o",
+    "prebuild": "rimraf build && mkdir -p build",
+    "build:html": "for f in frontend/src/*.html; do html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true $f -o build/$(basename $f); done",
+    "build:css": "mkdir -p build/css && cleancss -o build/css/styles.min.css frontend/src/css/*.css",
+    "build:js": "mkdir -p build/js && for f in frontend/src/js/*.js; do uglifyjs $f -o build/js/$(basename $f .js).min.js; done",
+    "build:assets": "copyfiles -u 2 \"frontend/src/images/**/*\" build/images",
+    "build": "npm run prebuild && npm run build:html && npm run build:css && npm run build:js && npm run build:assets && echo \"Build completed successfully!\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "aws",
+    "cloud"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "rimraf": "^5.0.5",
+    "copyfiles": "^2.4.1",
+    "html-minifier": "^4.0.0",
+    "clean-css-cli": "^5.6.3",
+    "uglify-js": "^3.17.4"
+  }
+}
