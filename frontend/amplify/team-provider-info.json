@@ -1,0 +1,45 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-interviewprepai-dev-f4f22-authRole",
+      "UnauthRoleArn": "arn:aws:iam::975050219289:role/amplify-interviewprepai-dev-f4f22-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::975050219289:role/amplify-interviewprepai-dev-f4f22-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-interviewprepai-dev-f4f22-deployment",
+      "UnauthRoleName": "amplify-interviewprepai-dev-f4f22-unauthRole",
+      "StackName": "amplify-interviewprepai-dev-f4f22",
+      "StackId": "arn:aws:cloudformation:us-west-2:975050219289:stack/amplify-interviewprepai-dev-f4f22/5b15f3e0-2e1d-11f0-98c4-02f8e9cc94f3",
+      "AmplifyAppId": "d76eopgrsre3j"
+    },
+    "categories": {
+      "function": {
+        "apiItemHandler": {}
+      },
+      "auth": {
+        "interviewprepai42511ee5": {}
+      }
+    }
+  },
+  "interview": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-interviewprepai-interview-aa470-authRole",
+      "UnauthRoleArn": "arn:aws:iam::975050219289:role/amplify-interviewprepai-interview-aa470-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::975050219289:role/amplify-interviewprepai-interview-aa470-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-interviewprepai-interview-aa470-deployment",
+      "UnauthRoleName": "amplify-interviewprepai-interview-aa470-unauthRole",
+      "StackName": "amplify-interviewprepai-interview-aa470",
+      "StackId": "arn:aws:cloudformation:us-west-2:975050219289:stack/amplify-interviewprepai-interview-aa470/9269e510-2e20-11f0-8bee-0a33d7947f35",
+      "AmplifyAppId": "d76eopgrsre3j"
+    },
+    "categories": {
+      "auth": {
+        "interviewprepai42511ee5": {}
+      },
+      "function": {
+        "apiItemHandler": {},
+        "interview": {}
+      }
+    }
+  }
+}

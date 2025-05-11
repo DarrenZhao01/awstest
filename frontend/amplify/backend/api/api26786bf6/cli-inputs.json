@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "paths": {
+    "/items": {
+      "name": "/items",
+      "lambdaFunction": "apiItemHandler",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/audio": {
+      "name": "/audio",
+      "lambdaFunction": "apiItemHandler",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

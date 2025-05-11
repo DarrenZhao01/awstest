@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Feedback</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .score-card {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            transition: transform 0.3s;
+        }
+        
+        .score-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .score-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .score-excellent {
+            background: linear-gradient(135deg, #28a745, #20c997);
+        }
+        
+        .score-good {
+            background: linear-gradient(135deg, #17a2b8, #6610f2);
+        }
+        
+        .score-average {
+            background: linear-gradient(135deg, #fd7e14, #ffc107);
+        }
+        
+        .score-needs-improvement {
+            background: linear-gradient(135deg, #dc3545, #fd7e14);
+        }
+        
+        .feedback-section {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .feedback-section:last-child {
+            border-bottom: none;
+        }
+        
+        .highlight-box {
+            background-color: #e9ecef;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .feedback-tag {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 50px;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+        }
+        
+        .tag-strength {
+            background-color: rgba(40, 167, 69, 0.1);
+            color: #28a745;
+            border: 1px solid rgba(40, 167, 69, 0.2);
+        }
+        
+        .tag-weakness {
+            background-color: rgba(220, 53, 69, 0.1);
+            color: #dc3545;
+            border: 1px solid rgba(220, 53, 69, 0.2);
+        }
+        
+        .response-card {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .response-question {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">AI Interview Prep</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" title="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/resume-upload.html">Upload Resume</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/interview.html">Start Interview</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/feedback.html">Feedback</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row mb-4">
+            <div class="col-md-8 mx-auto text-center">
+                <h1>Your Interview Performance</h1>
+                <p class="lead">Detailed feedback and analysis of your practice interview</p>
+            </div>
+        </div>
+        
+        <div class="row mb-5">
+            <div class="col-md-3">
+                <div class="card score-card shadow-sm h-100">
+                    <div class="card-body">
+                        <div class="score-circle score-good">82</div>
+                        <h4>Overall Score</h4>
+                        <p class="text-muted small">Based on content, delivery, and body language</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card score-card shadow-sm h-100">
+                    <div class="card-body">
+                        <div class="score-circle score-excellent">90</div>
+                        <h4>Content</h4>
+                        <p class="text-muted small">Relevance and substance of your answers</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card score-card shadow-sm h-100">
+                    <div class="card-body">
+                        <div class="score-circle score-good">85</div>
+                        <h4>Delivery</h4>
+                        <p class="text-muted small">Speech clarity, pacing, and vocal tone</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card score-card shadow-sm h-100">
+                    <div class="card-body">
+                        <div class="score-circle score-average">72</div>
+                        <h4>Body Language</h4>
+                        <p class="text-muted small">Eye contact, posture, and facial expressions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-white">
+                        <h3 class="mb-0">Detailed Analysis</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="feedback-section">
+                            <h4>Content & Structure</h4>
+                            <p>Your answers were well-structured and showed good knowledge of the subject matter. You effectively used the STAR method for behavioral questions and provided relevant examples from your experience.</p>
+                            
+                            <div class="highlight-box">
+                                <h5>Strengths</h5>
+                                <div>
+                                    <span class="feedback-tag tag-strength">Clear examples</span>
+                                    <span class="feedback-tag tag-strength">STAR format</span>
+                                    <span class="feedback-tag tag-strength">Relevant experience</span>
+                                </div>
+                                
+                                <h5 class="mt-3">Areas for Improvement</h5>
+                                <div>
+                                    <span class="feedback-tag tag-weakness">Answer length</span>
+                                    <span class="feedback-tag tag-weakness">Technical detail</span>
+                                </div>
+                                
+                                <p class="mt-3 mb-0"><strong>Tip:</strong> Try to be more concise with your answers. Aim for 1-2 minutes per response to avoid going off-topic.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feedback-section">
+                            <h4>Verbal Communication</h4>
+                            <p>Your speech was clear and well-paced, making it easy to understand your points. You conveyed confidence and enthusiasm in your tone.</p>
+                            
+                            <div class="highlight-box">
+                                <h5>Strengths</h5>
+                                <div>
+                                    <span class="feedback-tag tag-strength">Clear pronunciation</span>
+                                    <span class="feedback-tag tag-strength">Good pace</span>
+                                    <span class="feedback-tag tag-strength">Enthusiastic tone</span>
+                                </div>
+                                
+                                <h5 class="mt-3">Areas for Improvement</h5>
+                                <div>
+                                    <span class="feedback-tag tag-weakness">Filler words</span>
+                                    <span class="feedback-tag tag-weakness">Volume variation</span>
+                                </div>
+                                
+                                <p class="mt-3 mb-0"><strong>Tip:</strong> Practice reducing filler words like "um" and "uh". We detected these 23 times in your interview. Try pausing briefly instead when you need to think.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feedback-section">
+                            <h4>Non-Verbal Communication</h4>
+                            <p>Your posture showed engagement, but there were opportunities to improve eye contact and facial expressions to show more confidence and enthusiasm.</p>
+                            
+                            <div class="highlight-box">
+                                <h5>Strengths</h5>
+                                <div>
+                                    <span class="feedback-tag tag-strength">Good posture</span>
+                                    <span class="feedback-tag tag-strength">Minimal fidgeting</span>
+                                </div>
+                                
+                                <h5 class="mt-3">Areas for Improvement</h5>
+                                <div>
+                                    <span class="feedback-tag tag-weakness">Eye contact</span>
+                                    <span class="feedback-tag tag-weakness">Facial expressions</span>
+                                    <span class="feedback-tag tag-weakness">Hand gestures</span>
+                                </div>
+                                
+                                <p class="mt-3 mb-0"><strong>Tip:</strong> Try to maintain more consistent eye contact with the camera (simulating eye contact with the interviewer). Incorporate natural hand gestures to emphasize key points.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-white">
+                        <h3 class="mb-0">Question Responses</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="response-card">
+                            <div class="response-question">Tell me about yourself and your background.</div>
+                            <p>Your response was comprehensive and gave a good overview of your professional journey. You highlighted relevant experience and skills for the position. The answer flowed logically from education to current role.</p>
+                            <div class="progress mb-2">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div>
+                            </div>
+                        </div>
+                        
+                        <div class="response-card">
+                            <div class="response-question">Describe a challenging project you worked on and how you handled it.</div>
+                            <p>You provided a specific example that demonstrated your problem-solving skills. However, the STAR format could have been applied more effectively. The Action and Result components needed more detail.</p>
+                            <div class="progress mb-2">
+                                <div class="progress-bar bg-info" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+                            </div>
+                        </div>
+                        
+                        <div class="response-card">
+                            <div class="response-question">What are your strengths and weaknesses?</div>
+                            <p>Your strengths were well articulated with supporting examples. For weaknesses, you demonstrated self-awareness but could have better explained how you're actively working to improve.</p>
+                            <div class="progress mb-2">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">65%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-white">
+                        <h3 class="mb-0">Summary</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Your interview performance showed strong potential with several notable strengths and specific areas for improvement.</p>
+                        
+                        <h5 class="mt-4">Key Strengths</h5>
+                        <ul>
+                            <li>Well-structured responses with relevant examples</li>
+                            <li>Clear articulation of ideas and concepts</li>
+                            <li>Good knowledge of technical subject matter</li>
+                            <li>Professional demeanor throughout the interview</li>
+                        </ul>
+                        
+                        <h5 class="mt-4">Priority Improvement Areas</h5>
+                        <ul>
+                            <li>Reduce use of filler words (um, uh, like)</li>
+                            <li>Improve eye contact consistency with the camera</li>
+                            <li>Be more concise in responses to behavioral questions</li>
+                            <li>Add more specificity when discussing accomplishments</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card shadow-sm">
+                    <div class="card-header bg-white">
+                        <h3 class="mb-0">Next Steps</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Based on your performance, here are recommended actions to improve:</p>
+                        
+                        <div class="d-grid gap-2">
+                            <a href="/interview.html" class="btn btn-primary">Practice Again</a>
+                            <button class="btn btn-outline-secondary">Download Detailed Report</button>
+                        </div>
+                        
+                        <h5 class="mt-4">Practice Exercises</h5>
+                        <ul>
+                            <li><strong>Eye contact drill:</strong> Practice webcam eye contact for 5 minutes daily</li>
+                            <li><strong>Filler word reduction:</strong> Record yourself answering questions and count filler words</li>
+                            <li><strong>STAR method practice:</strong> Prepare 5 more examples using the STAR format</li>
+                            <li><strong>Conciseness drill:</strong> Practice answering common questions in under 90 seconds</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer mt-5 py-3 bg-light">
+        <div class="container text-center">
+            <span class="text-muted">© 2025 AI Interview Prep | AWS CloudHacks</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aws-amplify@5.3.10/dist/aws-amplify.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 
