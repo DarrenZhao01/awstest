@@ -7,11 +7,12 @@
     "start": "echo \"Define your start script here\"",
     "dev": "npx http-server frontend/src -p 3001 -o",
     "prebuild": "rimraf build && mkdir -p build",
-    "build:html": "for f in frontend/src/*.html; do html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true $f -o build/$(basename $f); done",
-    "build:css": "mkdir -p build/css && cleancss -o build/css/styles.min.css frontend/src/css/*.css",
-    "build:js": "mkdir -p build/js && for f in frontend/src/js/*.js; do uglifyjs $f -o build/js/$(basename $f .js).min.js; done",
-    "build:assets": "copyfiles -u 2 \"frontend/src/images/**/*\" build/images",
+    "build:html": "for f in frontend/src/*.html; do if [ -f \"$f\" ]; then html-minifier-terser --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true $f -o build/$(basename $f); fi; done",
+    "build:css": "mkdir -p build/css && if [ -d \"frontend/src/css\" ] && [ \"$(ls -A frontend/src/css/*.css 2>/dev/null)\" ]; then cleancss -o build/css/styles.min.css frontend/src/css/*.css; else echo \"No CSS files found\"; fi",
+    "build:js": "mkdir -p build/js && if [ -d \"frontend/src/js\" ]; then for f in frontend/src/js/*.js; do if [ -f \"$f\" ]; then uglifyjs $f -o build/js/$(basename $f .js).min.js; fi; done; else echo \"No JS directory found\"; fi",
+    "build:assets": "mkdir -p build/images && if [ -d \"frontend/src/images\" ]; then copyfiles -u 2 \"frontend/src/images/**/*\" build/images; else echo \"No images directory found\"; fi",
     "build": "npm run prebuild && npm run build:html && npm run build:css && npm run build:js && npm run build:assets && echo \"Build completed successfully!\"",
+    "serve": "http-server build -p 3003 -o",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -24,7 +25,7 @@
     "http-server": "^14.1.1",
     "rimraf": "^5.0.5",
     "copyfiles": "^2.4.1",
-    "html-minifier": "^4.0.0",
+    "html-minifier-terser": "^7.2.0",
     "clean-css-cli": "^5.6.3",
     "uglify-js": "^3.17.4"
   }
